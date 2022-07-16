@@ -1,9 +1,22 @@
-import Card from "../../UI/Card"
+import classes from "./MealItem.module.css";
+import MealItemForm from "./MealItemForm";
 
-const MealItem = ()=>{
-    return( <Card>
+const MealItem = (props) => {
+  const price = `$${props.price.toFixed(2)}`;
 
-    </Card>)
-}
+  return (
+    <li className={classes.meal}>
+      <div>
+        <h3>{props.name}</h3>
+        <div className={classes.description}>{props.description}</div>
+        <div className={classes.price}>{price}</div>
+      </div>
 
-export default MealItem
+      <div>
+        <MealItemForm />
+      </div>
+    </li>
+  );
+};
+
+export default MealItem;
